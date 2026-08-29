@@ -1,22 +1,40 @@
-<img src="https://github.com/secali/Implantacion_RTU_Arduino/blob/1f98620551af1ec6b14aa62e3f147601333eba24/circuito.JPG">
-El problema a resolver es la falta de seguridad frente a acumulación de gases o escapes de 
-gas en una nave industrial, donde se trabaja con gases CO2 constantemente y se puede llegar a 
-acumular a niveles tóxicos para la salud. Usaremos los siguientes elementos, que vienen 
-descritos acontinuación.
+<div align="center">
 
-Un sensor de gas que detecte por niveles cuando hay acumulación de gas, un servo 
-motor que abrirá una escotilla 45º cuando el nivel de gas sea bajo, y a 90º cuando el nivel de 
-gas sea medio.
+# 🏭 Air Toxicity Industrial RTU Monitor
 
-En paralelo cuando el nivel de gas sea medio, un motor de CC (que simula un ventilador)
-entrará en funcionamiento cuando el nivel de gas sea alto. El control de este se hace con un 
-transistor que BJT(NPN) que simula un relé que hace de controlador de potencia, ya que en un 
-entorno industrial habrá un ventilador industrial que dependiendo de cómo sea de grande, su 
-motor, trabajará con altos voltajes e intensidades.
+**Autonomous Remote Terminal Unit (RTU) for multi-gas atmospheric toxicity sensing and automated hazard alerting.**
 
-Además, como medida extra cuando el sensor de proximidad detecte a alguien en la estancia 
-se emitirá una señal sonora a través del buzzer que simula un altavoz a distintas frecuencias e 
-intensidades dependiendo del nivel de gas. Y un led RGB que simularía luces de emergencia, 
-que dependiendo del nivel de gas se encenderían en distintos colores dependiendo del nivel de 
-gas: verde (no hay gas o nivel muy bajo y no peligroso), amarillo (nivel medio), rojo (nivel 
-alto).
+[![Hardware](https://img.shields.io/badge/Hardware-Arduino%20Uno%20%2F%20Mega-00979D?logo=arduino&logoColor=white)](https://www.arduino.cc/)
+[![Language](https://img.shields.io/badge/Language-C%2B%2B-00599C?logo=c%2B%2B&logoColor=white)](https://isocpp.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+</div>
+
+---
+
+## 📌 Problem Statement & Solution
+
+In industrial and enclosed environments, the silent buildup of toxic gases poses immediate safety risks. 
+
+This project implements an **embedded RTU (Remote Terminal Unit)** utilizing microcontrollers, gas sensor arrays (MQ series), and multi-stage actuators to provide:
+1. Continuous atmospheric sampling and PPM threshold calculation.
+2. Immediate hardware-level acoustic/optical alarms upon limit breach.
+3. Automated relay triggering for forced ventilation extraction systems.
+
+---
+
+## 🔌 Circuit & Hardware Setup
+
+```text
+[ Gas Sensors (MQ-x) ] ──(Analog In)──> [ Arduino RTU ]
+                                              │
+                    ┌─────────────────────────┴─────────────────────────┐
+                    ▼                                                   ▼
+         [ Optical/Buzzer Alarms ]                         [ Relay Exhaust Actuators ]
+```
+
+---
+
+## 📄 License
+
+MIT License © [Sergio Cañete (secali)](https://github.com/secali)
